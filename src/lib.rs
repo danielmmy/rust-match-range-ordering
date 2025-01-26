@@ -1,6 +1,6 @@
 use std::usize;
 
-pub fn crescent_ordering(n: usize) -> i8 {
+pub fn match_range_crescent_ordering(n: usize) -> i8 {
     match n {
         0..10 => 0,
         10..20 => 1,
@@ -16,7 +16,7 @@ pub fn crescent_ordering(n: usize) -> i8 {
     }
 }
 
-pub fn decrescent_ordering(n: usize) -> i8 {
+pub fn match_range_decrescent_ordering(n: usize) -> i8 {
     match n {
         90..100 => 9,
         80..90 => 8,
@@ -73,7 +73,7 @@ mod tests {
 
         for (value, expected) in test_table {
             // act
-            let res = crescent_ordering(value);
+            let res = match_range_crescent_ordering(value);
 
             // assert
             assert_eq!(res, expected);
@@ -109,7 +109,7 @@ mod tests {
 
         for (value, expected) in test_table {
             // act
-            let res = decrescent_ordering(value);
+            let res = match_range_decrescent_ordering(value);
 
             // assert
             assert_eq!(res, expected);
@@ -122,8 +122,8 @@ mod tests {
         let data: Vec<usize> = vec![0, 1, 10, 11, 20, 22];
 
         // act
-        let res1 = run_many(&data, &crescent_ordering);
-        let res2 = run_many(&data, &crescent_ordering);
+        let res1 = run_many(&data, &match_range_crescent_ordering);
+        let res2 = run_many(&data, &match_range_crescent_ordering);
 
         // assert
         assert_eq!(res1, 6);
