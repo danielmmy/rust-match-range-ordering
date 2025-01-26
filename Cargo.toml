@@ -1,0 +1,11 @@
+[package]
+name = "rust_match_range_ordering"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+criterion = { version = "0.5.1", features = ["html_reports"] }
+
+[[bench]]
+name = "match_range_ordering"
+harness = false
