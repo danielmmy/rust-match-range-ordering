@@ -1,5 +1,37 @@
 use std::usize;
 
+pub fn match_crescent_ordering(n: usize) -> i8 {
+    match n {
+        0 => 9,
+        1 => 8,
+        2 => 7,
+        3 => 6,
+        4 => 5,
+        5 => 4,
+        6 => 3,
+        7 => 2,
+        8 => 1,
+        9 => 0,
+        _ => -1,
+    }
+}
+
+pub fn match_decrescent_ordering(n: usize) -> i8 {
+    match n {
+        9 => 0,
+        8 => 1,
+        7 => 2,
+        6 => 3,
+        5 => 4,
+        4 => 5,
+        3 => 6,
+        2 => 7,
+        1 => 8,
+        0 => 9,
+        _ => -1,
+    }
+}
+
 pub fn match_range_crescent_ordering(n: usize) -> i8 {
     match n {
         0..10 => 0,
@@ -45,7 +77,59 @@ mod tests {
     use super::*;
 
     #[test]
-    fn crescent_ordering_test() {
+    fn match_crescent_ordering_test() {
+        // arrange
+        let test_table: Vec<(usize, i8)> = vec![
+            (0, 9),
+            (1, 8),
+            (2, 7),
+            (3, 6),
+            (4, 5),
+            (5, 4),
+            (6, 3),
+            (7, 2),
+            (8, 1),
+            (9, 0),
+            (10, -1),
+        ];
+
+        for (value, expected) in test_table {
+            // act
+            let res = match_crescent_ordering(value);
+
+            // assert
+            assert_eq!(res, expected);
+        }
+    }
+
+    #[test]
+    fn match_decrescent_ordering_test() {
+        // arrange
+        let test_table: Vec<(usize, i8)> = vec![
+            (0, 9),
+            (1, 8),
+            (2, 7),
+            (3, 6),
+            (4, 5),
+            (5, 4),
+            (6, 3),
+            (7, 2),
+            (8, 1),
+            (9, 0),
+            (10, -1),
+        ];
+
+        for (value, expected) in test_table {
+            // act
+            let res = match_decrescent_ordering(value);
+
+            // assert
+            assert_eq!(res, expected);
+        }
+    }
+
+    #[test]
+    fn match_range_crescent_ordering_test() {
         // arrange
         let test_table: Vec<(usize, i8)> = vec![
             (0, 0),
@@ -81,7 +165,7 @@ mod tests {
     }
 
     #[test]
-    fn decrescent_ordering_test() {
+    fn match_range_decrescent_ordering_test() {
         // arrange
         let test_table: Vec<(usize, i8)> = vec![
             (0, 0),
